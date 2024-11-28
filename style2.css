@@ -1,0 +1,226 @@
+
+body {
+    background: linear-gradient(90deg, #0C164D, #190B22 );
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+}
+.wrapper2 {
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.stars {
+    position: absolute;
+    background-size: contain;
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.planets {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.planet {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.planet__outer {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    
+}
+
+
+.planet__outer--outer {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.planet__outer--outer:hover {
+    transform: scale(1.5);
+    transition: 1s;
+    cursor: pointer;
+}
+
+.wrapper__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.main__header {
+    color: white;
+    font-weight: 400;
+    font-family:'Secular One';
+    font-size: 60px;
+    letter-spacing: 5px;
+}
+
+.main__header--lower {
+    color: #FFD029;
+    font-weight: 400;
+    font-family: Lora;
+    font-size: 24px;
+    letter-spacing: 12px;
+    margin-bottom: 1rem;
+}
+
+.main__text {
+    color: white;
+    font-family: 'Roboto Condensed';
+    font-weight: 300;
+    font-size: 20px;
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+
+.main__span--upper {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 2px;
+    background-color: gray;
+    border-radius: 8px;
+}
+
+.main__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(3, 33%);
+    height: 100%;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 3px;
+}
+
+.main__circumference {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    align-self: center;
+    margin-bottom: 5rem;
+    
+    
+}
+
+.main__circumference--bread {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    align-self: center;
+    font-weight: 300;
+    
+}
+
+.main__KM {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-self: center;
+    margin-bottom: 5rem; 
+    
+}
+
+.main__km--bread {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-self: center;
+    font-weight: 300;
+    
+}
+
+.main__maxtemp {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    margin-bottom: 5rem;
+}
+
+.main__maxtemp--bread {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    font-weight: 300;
+}
+
+.main__mintemp {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-self: center;
+    margin-bottom: 5rem;
+}
+
+.main__mintemp--bread {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-self: center;
+    font-weight: 300;
+}
+
+
+.main__span--lower {
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    border-radius: 8px;
+    margin-bottom: 5rem;
+    grid-column: 1/3;
+    grid-row: 3/4;
+
+}
+
+.main__moons {
+    margin-top: 3rem;
+    grid-column: 1/2;
+    grid-row: 3/4;
+    align-self: center;
+    margin-bottom: 5rem;
+}
+
+.main__moons--bread {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    align-self: center;
+    font-weight: 300;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));  
+    max-height: 200px; 
+    overflow-y: auto; 
+}
+
+.main__moons--bread span {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.2); 
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+}

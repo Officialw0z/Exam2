@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solsystemet</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <script type="module" src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -13,12 +14,55 @@
 </head>
 <body>
     <div class="wrapper">
-        <img src="Pictures/Subtract.svg" alt="Picture of the sun" class="wrapper-sun">
-        <div id="svg-container"></div>
-        <section class="wrapper-div_headers">
-            <h1 class="wrapper-mainheader">SOLSYSTEMET</h1>
-            <h2 class="wrapper-miniheader">SOLARIS</h2>
+        <img src="Pictures/Subtract.svg" alt="Picture of the sun" class="wrapper__sun">
+        <div id="svg-container">
+            <svg width="1500" height="500" viewBox="-50 0 1250 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle id="planet1" cx="7" cy="94" r="7" fill="#888888"/>
+                <circle id="planet2" cx="90" cy="94" r="13" fill="#E7CDCD"/>
+                <circle id="planet3" cx="186" cy="94" r="14" fill="#428ED5"/>
+                <circle id="planet4" cx="277" cy="94" r="7" fill="#EF5F5F"/>
+                <circle id="planet5" cx="467" cy="94" r="94" fill="#E29468"/>
+                <circle id="planet6" cx="744" cy="94" r="72" fill="#C7AA72"/>
+                <ellipse cx="744" cy="94" rx="109.116" ry="2.75039" transform="rotate(-30 744 94)" fill="white" fill-opacity="0.4"/>
+                <circle id="planet7" cx="966" cy="94" r="33" fill="#C9D4F1"/>
+                <circle id="planet8" cx="1136" cy="94" r="33" fill="#7A91A7"/>
+                </svg>                
+        </div>
+        <section class="wrapper__div--headers">
+            <h1 class="wrapper__mainheader">SOLSYSTEMET</h1>
+            <h2 class="wrapper__miniheader">SOLARIS</h2>
         </section>
+    </div>
+
+    <div class="wrapper2">
+        <img src="Pictures/stars.png" alt="" class="stars">
+        <section class="planets">
+        
+        <img src="Pictures/Subtract (1).svg" alt="back to homepage" class="planet">
+        <img src="Pictures/sun.svg" alt="" class="planet__outer">
+        <img src="Pictures/sun (1).svg" alt="" class="planet__outer--outer">
+        </section>
+        <section class="wrapper__main">
+        <article class="main">
+            <h1 class="main__header"></h1>
+            <h2 class="main__header--lower"></h2>
+            <p class="main__text"></p>
+            <span class="main__span--upper"></span>
+            <div class="main__grid">
+                <p class="main__circumference">OMKRETS</p>
+                <p class="main__circumference--bread"></p>
+                <p class="main__KM">KM FRÅN SOLEN</p>
+                <p class="main__km--bread"></p>
+                <p class="main__maxtemp">MAXTEMP</p>
+                <p class="main__maxtemp--bread"></p>
+                <p class="main__mintemp">MINTEMP</p>
+                <p class="main__mintemp--bread"></p>
+            <span class="main__span--lower"></span>
+            <p class="main__moons">Månar</p>
+            <p class="main__moons--bread"></p>
+        </div>
+        </article>
+    </section>
     </div>
 </body>
 </html>
