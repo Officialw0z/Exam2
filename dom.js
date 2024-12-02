@@ -20,8 +20,8 @@ export const displayInfo = async(planet) => {
     element.header.innerText = planet.name
     element.headerLower.innerText = planet.latinName
     element.mainText.innerText = planet.desc
-    element.circumferenceBread.innerText =  planet.circumference + ' km'
-    element.kmBread.innerText = planet.distance + ' km'
+    element.circumferenceBread.innerText =  planet.circumference.toLocaleString() + ' km'
+    element.kmBread.innerText = planet.distance.toLocaleString() + ' km'
     element.maxTempBread.innerText = planet.temp.day + ' ºC'
     element.minTempBread.innerText = planet.temp.night + ' ºC'
     element.moonsBread.innerText = planet.moons
