@@ -1,23 +1,10 @@
-const header = document.querySelector('.main__header')
-const headerLower = document.querySelector('.main__header--lower')
-const mainText = document.querySelector('.main__text')
-const circumferenceBread = document.querySelector('.main__circumference--bread')
-const kmBread = document.querySelector('.main__km--bread')
-const maxTempBread = document.querySelector('.main__maxtemp--bread')
-const minTempBread = document.querySelector('.main__mintemp--bread')
-const moonsBread = document.querySelector('.main__moons--bread')
-const wrapper = document.querySelector('.wrapper')
-const wrapper2 = document.querySelector('.wrapper2')
+// Mainscript file with two eventlistener and my main fetch where i get all information from other files.
+// My main fetch file fetches all SVG files and then transform it into the data that is displayed to all planets.
 
-const planet0 = document.querySelector('.wrapper__sun')
-const planet1 = document.getElementById('planet1')
-const planet2 = document.getElementById('planet2')
-const planet3 = document.getElementById('planet3')
-const planet4 = document.getElementById('planet4')
-const planet5 = document.getElementById('planet5')
-const planet6 = document.getElementById('planet6')
-const planet7 = document.getElementById('planet7')
-const planet8 = document.getElementById('planet8')
+import {element} from "./dom.js";
+import {getKey} from "./api.js";
+import {displayInfo} from "./dom.js";
+
 
 const planetImage = document.querySelector('.planet__outer--outer')
 
@@ -25,7 +12,15 @@ planetImage.addEventListener('click', () => {
     window.location.href = 'index.html'
 })
 
-let apiKey = null
+element.sun.addEventListener('click', async ()=> {
+    const planet = await getKey('POST', '/keys')
+    if (planet) {
+        console.log("Stjärnan", planet.bodies[0])
+        displayInfo(planet.bodies[0])
+    } else {
+        console.error("ingen data tillgänglig")
+    }
+})
 
 const fetchPlanetData = async () => {
     try {
@@ -44,80 +39,13 @@ const fetchPlanetData = async () => {
                     console.log(`Planet ${planetId}:`, planetInfo)
                     displayInfo(planetInfo)
                 } else {
-                    console.error("Ingen data tillgänglig")
+                    console.error("No data available")
                 }
             })
         })
     } catch (error) {
-        console.error('Error loading SVG:', error)
+        console.error('Error:', error)
     }
 }
 
 fetchPlanetData()
-
-
-const getKey = async (apiType, endpoint) => {
-    const url = 'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com' + endpoint
-
-    const options = {
-        "method": apiType
-    }
-   try {
-    const res = await fetch(url, options)
-    const data = await res.json()
-    apiKey = data.key
-    console.log("API-KEY:", apiKey)
-
-    let planetsData = await getPlanets('GET','/bodies', apiKey)
-    console.log("Planeter:", planetsData)
-    return planetsData
-   }
-   catch (error) {
-   console.error("error getting key", error)
-}}
-
-
-const getPlanets = async (apiType, endpoint, key) => {
-    const url = 'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com' + endpoint
-
-    const options = {
-        method: apiType,
-        headers: {
-            'x-zocom': key
-        }
-    }
-
-   try {
-    const res = await fetch(url, options)
-    return await res.json()
-   }
-   catch (error) {
-    console.error("error getting planets:", error)
-   }
-}
-
-getKey('POST', '/keys')
-
-const displayInfo = async(planet) => {
-    wrapper.style.display = 'none'
-    wrapper2.style.display = 'flex'
-    header.innerText = planet.name
-    headerLower.innerText = planet.latinName
-    mainText.innerText = planet.desc
-    circumferenceBread.innerText =  planet.circumference + ' km'
-    kmBread.innerText = planet.distance + ' km'
-    maxTempBread.innerText = planet.temp.day + ' ºC'
-    minTempBread.innerText = planet.temp.night + ' ºC'
-    moonsBread.innerText = planet.moons
-}
-
-planet0.addEventListener('click', async ()=> {
-    const planet = await getKey('POST', '/keys')
-    if (planet) {
-        console.log("Stjärnan", planet.bodies[0])
-        displayInfo(planet.bodies[0])
-    } else {
-        console.error("ingen data tillgänglig")
-    }
-})
-
